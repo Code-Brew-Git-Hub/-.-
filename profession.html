@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Профессии - Контур.Навигатор</title>
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🚀</span>
+                <span class="logo-text">Контур.Навигатор</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="professions.html" class="nav-link active">Профессии</a>
+                <a href="test.html" class="nav-link">Тест</a>
+                <a href="roadmap.html" class="nav-link">Траектория</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <h1>IT Профессии в Бизнесе</h1>
+                <p>Изучи востребованные направления и найди свой путь в IT-индустрии</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search and Filters -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-grid">
+                <div class="search-box">
+                    <input type="text" id="professionSearch" placeholder="Поиск профессий..." oninput="filterProfessions()">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <select id="categoryFilter" onchange="filterProfessions()">
+                    <option value="all">Все категории</option>
+                    <option value="development">Разработка</option>
+                    <option value="analytics">Аналитика</option>
+                    <option value="design">Дизайн</option>
+                    <option value="management">Менеджмент</option>
+                </select>
+                <select id="experienceFilter" onchange="filterProfessions()">
+                    <option value="all">Любой уровень</option>
+                    <option value="junior">Junior</option>
+                    <option value="middle">Middle</option>
+                    <option value="senior">Senior</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professions Grid -->
+    <section class="professions-listing">
+        <div class="container">
+            <div id="professionsGrid" class="professions-grid expanded">
+                <!-- Динамически заполняется через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Расширенная функция фильтрации
+        function filterProfessions() {
+            const searchTerm = document.getElementById('professionSearch').value.toLowerCase();
+            const category = document.getElementById('categoryFilter').value;
+            const experience = document.getElementById('experienceFilter').value;
+            const cards = document.querySelectorAll('.profession-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('.profession-title').textContent.toLowerCase();
+                const description = card.querySelector('.profession-description').textContent.toLowerCase();
+                const categories = card.dataset.categories.split(',');
+                const expLevel = card.dataset.experience;
+                
+                const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+                const matchesCategory = category === 'all' || categories.includes(category);
+                const matchesExperience = experience === 'all' || expLevel === experience;
+                
+                card.style.display = (matchesSearch && matchesCategory && matchesExperience) ? 'block' : 'none';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProfessions();
+        });
+    </script>
+</body>
+</html>

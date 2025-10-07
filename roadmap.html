@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Индивидуальная траектория - Контур.Профи</title>
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <div class="logo" onclick="goToHome()" style="cursor: pointer;">
+                    <span>🚀</span>
+                    <span>Контур.Профи</span>
+                </div>
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link">Профессии</a>
+                    <a href="test.html" class="nav-link">Тест</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Roadmap Content -->
+    <main class="roadmap-container">
+        <div id="roadmapContent">
+            <!-- Траектория будет загружена динамически -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span>🚀</span>
+                        <span>Контур.Профи</span>
+                    </div>
+                    <p>Помогаем найти свой путь в IT с 2024 года</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Поддержка</h3>
+                    <ul>
+                        <li><a href="mailto:support@kontur-profi.ru">support@kontur-profi.ru</a></li>
+                        <li><a href="tel:+78003333636">8 (800) 333-36-36</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Партнер</h3>
+                    <div class="partner-info">
+                        <strong>Code & Brew</strong>
+                        <p>IT решения для бизнеса</p>
+                        <div class="partner-contacts">
+                            <a href="mailto:hello@codebrew.ru">hello@codebrew.ru</a>
+                            <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/roadmap.js"></script>
+    <script>
+        // Navigation function
+        function goToHome() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контур.Профи - IT профессии и карьера</title>
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <div class="logo" onclick="console.log('Клик!'); scrollToTop();" style="cursor: pointer;">
+                    <span>🚀</span>
+                    <span>Контур.Профи</span>
+                </div>
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link active">Профессии</a>
+                    <a href="test.html" class="nav-link">Тест</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="background-image bg-image-1"></div>
+            <div class="background-image bg-image-2"></div>
+            <div class="gradient-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Найди свою IT-профессию</h1>
+                <p>Исследуй мир технологий, открой для себя перспективные направления и построй успешную карьеру в IT</p>
+                <div class="hero-actions">
+                    <a href="#professions" class="btn btn-primary" onclick="smoothScrollToProfessions(event)">
+                        <span class="btn-icon">💼</span>
+                        Смотреть профессии
+                    </a>
+                    <a href="test.html" class="btn btn-secondary">
+                        <span class="btn-icon">🧩</span>
+                        Пройти тест
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">профессий</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">направлений</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">практики</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professions Section -->
+    <section id="professions" class="professions">
+        <div class="container">
+            <div class="section-header">
+                <h2>IT-Профессии и Направления</h2>
+                <p>Исследуйте разнообразие карьерных путей в технологической индустрии</p>
+            </div>
+
+            <!-- Основные направления из теста -->
+            <div class="main-directions">
+                <h3>🎯 Основные направления</h3>
+                <div class="directions-grid">
+                    <div class="direction-card" data-direction="qa">
+                        <div class="direction-icon">🔍</div>
+                        <h4>Тестирование и QA</h4>
+                        <p>Контроль качества и обеспечение надежности программного обеспечения</p>
+                        <div class="direction-roles">
+                            <span class="role-tag">QA Engineer</span>
+                            <span class="role-tag">Test Automation</span>
+                            <span class="role-tag">Game QA</span>
+                        </div>
+                        <button class="btn btn-outline show-roles-btn" data-direction="qa">
+                            Показать профессии
+                        </button>
+                    </div>
+
+                    <div class="direction-card" data-direction="backend">
+                        <div class="direction-icon">⚙️</div>
+                        <h4>Backend разработка</h4>
+                        <p>Создание серверной логики, API и работы с данными</p>
+                        <div class="direction-roles">
+                            <span class="role-tag">Backend Developer</span>
+                            <span class="role-tag">Java/Python/C#</span>
+                            <span class="role-tag">System Architect</span>
+                        </div>
+                        <button class="btn btn-outline show-roles-btn" data-direction="backend">
+                            Показать профессии
+                        </button>
+                    </div>
+
+                    <div class="direction-card" data-direction="design">
+                        <div class="direction-icon">🎨</div>
+                        <h4>UI/UX Дизайн</h4>
+                        <p>Создание удобных и эстетичных интерфейсов для пользователей</p>
+                        <div class="direction-roles">
+                            <span class="role-tag">UI/UX Designer</span>
+                            <span class="role-tag">Product Designer</span>
+                            <span class="role-tag">UX Researcher</span>
+                        </div>
+                        <button class="btn btn-outline show-roles-btn" data-direction="design">
+                            Показать профессии
+                        </button>
+                    </div>
+
+                    <div class="direction-card" data-direction="management">
+                        <div class="direction-icon">👥</div>
+                        <h4>Управление проектами</h4>
+                        <p>Организация команд, планирование и контроль разработки</p>
+                        <div class="direction-roles">
+                            <span class="role-tag">Project Manager</span>
+                            <span class="role-tag">Product Manager</span>
+                            <span class="role-tag">Scrum Master</span>
+                        </div>
+                        <button class="btn btn-outline show-roles-btn" data-direction="management">
+                            Показать профессии
+                        </button>
+                    </div>
+
+                    <div class="direction-card" data-direction="devops">
+                        <div class="direction-icon">🔧</div>
+                        <h4>DevOps и инфраструктура</h4>
+                        <p>Автоматизация процессов разработки и обеспечение надежности систем</p>
+                        <div class="direction-roles">
+                            <span class="role-tag">DevOps Engineer</span>
+                            <span class="role-tag">SRE</span>
+                            <span class="role-tag">Cloud Engineer</span>
+                        </div>
+                        <button class="btn btn-outline show-roles-btn" data-direction="devops">
+                            Показать профессии
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Все IT направления -->
+            <div class="all-directions">
+                <h3>🌐 Все IT-направления</h3>
+                <div class="fields-grid" id="allFieldsGrid">
+                    <!-- Направления будут загружены через JavaScript -->
+                </div>
+            </div>
+
+            <!-- Детальная информация о профессиях -->
+            <div class="professions-detail" id="professionsDetail">
+                <!-- Контент будет загружен динамически -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Не знаете с чего начать?</h2>
+                <p>Пройдите наш профориентационный тест и получите персонализированные рекомендации</p>
+                <a href="test.html" class="btn btn-primary btn-large">
+                    <span class="btn-icon">🧩</span>
+                    Пройти тест
+                </a>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span>🚀</span>
+                        <span>Контур.Профи</span>
+                    </div>
+                    <p>Помогаем найти свой путь в IT с 2024 года</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Поддержка</h3>
+                    <ul>
+                        <li><a href="mailto:support@kontur-profi.ru">support@kontur-profi.ru</a></li>
+                        <li><a href="tel:+78003333636">8 (800) 333-36-36</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Партнер</h3>
+                    <div class="partner-info">
+                        <strong>Code & Brew</strong>
+                        <p>IT решения для бизнеса</p>
+                        <div class="partner-contacts">
+                            <a href="mailto:hello@codebrew.ru">hello@codebrew.ru</a>
+                            <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/professions.js"></script>
+</body>
+</html>

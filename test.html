@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профориентационный тест - Контур.Профи</title>
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <div class="logo" onclick="goToHome()" style="cursor: pointer;">
+                    <span>🚀</span>
+                    <span>Контур.Профи</span>
+                </div>
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link">Профессии</a>
+                    <a href="test.html" class="nav-link active">Тест</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Test Hero -->
+    <section class="test-hero">
+        <div class="test-hero-background">
+            <div class="background-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="test-hero-content">
+                <div class="test-badge">
+                    <span>🧩</span>
+                    Профориентационный тест
+                </div>
+                <h1>Найди профессию, которая подходит именно тебе</h1>
+                <p>Ответьте на 25 вопросов и получите детальную траекторию развития в IT</p>
+                <div class="test-stats">
+                    <div class="stat">
+                        <span class="stat-number">25</span>
+                        <span class="stat-label">вопросов</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">блоков</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10</span>
+                        <span class="stat-label">минут</span>
+                    </div>
+                </div>
+                <button onclick="testManager.startTest()" class="btn btn-primary btn-hero">
+                    <span class="btn-icon">🧩</span>
+                    Начать тест
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test Content -->
+    <main class="test-main">
+        <div class="container">
+            <div class="test-progress-container">
+                <div class="progress-info">
+                    <span class="progress-text">Вопрос <span id="currentQuestion">1</span> из <span id="totalQuestions">25</span></span>
+                    <span class="block-text">Блок: <span id="currentBlock">1</span> из 5</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="testProgress"></div>
+                </div>
+            </div>
+
+            <div id="testContent">
+                <!-- Тест будет загружен динамически -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span>🚀</span>
+                        <span>Контур.Профи</span>
+                    </div>
+                    <p>Помогаем найти свой путь в IT с 2024 года</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Поддержка</h3>
+                    <ul>
+                        <li><a href="mailto:support@kontur-profi.ru">support@kontur-profi.ru</a></li>
+                        <li><a href="tel:+78003333636">8 (800) 333-36-36</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Партнер</h3>
+                    <div class="partner-info">
+                        <strong>Code & Brew</strong>
+                        <p>IT решения для бизнеса</p>
+                        <div class="partner-contacts">
+                            <a href="mailto:hello@codebrew.ru">hello@codebrew.ru</a>
+                            <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/test.js"></script>
+    <script>
+        function goToHome() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
