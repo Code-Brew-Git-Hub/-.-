@@ -24,10 +24,9 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    line-height: 1.6;
-    color: var(--text);
-    background: var(--background);
+    background-color: #016091 !important;
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
 }
 
 .container {
@@ -483,7 +482,7 @@ body {
 /* Professions Section */
 .professions {
     padding: 8rem 0;
-    background: var(--background);
+    background-color: #ffffff !important;
 }
 
 /* Updated Search Styles */
@@ -1882,13 +1881,13 @@ body {
 }
 
 .role-tag {
-    background: var(--primary-light);
+    background: #ffffff !important;
     color: var(--primary-dark);
     padding: 0.5rem 1rem;
     border-radius: 1rem;
     font-size: 0.875rem;
     font-weight: 500;
-    border: 1px solid var(--primary);
+    border: 1px solid #016091;
 }
 
 /* Additional IT Fields */
@@ -2128,12 +2127,6 @@ body {
     }
 }
 
-/* Professions Page Styles */
-.professions {
-    padding: 4rem 0;
-    background: var(--background);
-}
-
 .section-header {
     text-align: center;
     margin-bottom: 3rem;
@@ -2169,13 +2162,12 @@ body {
 }
 
 .direction-card {
-    background: var(--background);
-    border: 1px solid var(--border);
-    border-radius: 1.5rem;
-    padding: 2rem;
+    background: #ffffff;
+    border: 2px solid var(--primary);
+    border-radius: 1rem;
+    padding: 1.5rem;
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: var(--shadow);
 }
 
 .direction-card:hover {
@@ -2228,8 +2220,8 @@ body {
 }
 
 .field-category {
-    background: var(--background);
-    border: 1px solid var(--border);
+    background: #ffffff;
+    border: 2px solid var(--primary);
     border-radius: 1rem;
     padding: 1.5rem;
     transition: all 0.3s ease;
@@ -2283,7 +2275,7 @@ body {
 }
 
 .role-level-badge {
-    background: var(--primary-light);
+    background: #ffffff !important;
     color: var(--primary-dark);
     padding: 0.25rem 0.5rem;
     border-radius: 0.5rem;
@@ -2372,10 +2364,11 @@ body {
 }
 
 .role-card {
-    background: var(--background-alt);
+    background: #ffffff;
     border: 1px solid var(--border);
     border-radius: 1rem;
     padding: 1.5rem;
+    transition: all 0.3s ease;
 }
 
 .role-card-header {
