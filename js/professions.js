@@ -161,7 +161,7 @@ const allITFields = {
                     "Управление рисками",
                     "Лидерство и коммуникации"
                 ],
-                learnMoreUrl: "xxx"
+                learnMoreUrl: "https://en.wikipedia.org/wiki/Project_manager"
             },
             {
                 name: "Product Manager",
@@ -176,7 +176,7 @@ const allITFields = {
                     "Управление бэклогом",
                     "Работа с метриками"
                 ],
-                learnMoreUrl: "xxx"
+                learnMoreUrl: "https://en.wikipedia.org/wiki/Product_manager"
             }
         ]
     },
@@ -199,7 +199,7 @@ const allITFields = {
                     "Облачные платформы",
                     "Инфраструктура как код"
                 ],
-                learnMoreUrl: "xxx"
+                learnMoreUrl: "https://ru.ruwiki.ru/wiki/DevOps-инженер"
             },
             {
                 name: "Site Reliability Engineer (SRE)",
@@ -214,7 +214,7 @@ const allITFields = {
                     "Надежность систем",
                     "Производительность"
                 ],
-                learnMoreUrl: "xxx"
+                learnMoreUrl: "https://en.wikipedia.org/wiki/Site_reliability_engineering"
             }
         ]
     },
@@ -237,7 +237,7 @@ const allITFields = {
                     "Библиотеки ML",
                     "Feature engineering"
                 ],
-                learnMoreUrl: "xxx"
+                learnMoreUrl: "https://cyclowiki.org/wiki/Data_Scientist"
             },
             {
                 name: "Data Analyst",
@@ -252,7 +252,7 @@ const allITFields = {
                     "Бизнес-аналитика",
                     "Инструменты BI"
                 ],
-                learnMoreUrl: "xxx"
+                learnMoreUrl: "https://ru.ruwiki.ru/wiki/Аналитик_данных"
             }
         ]
     },
