@@ -1,4 +1,9 @@
-// Данные всех IT направлений и профессий
+/**
+ * КОНТУР.ПРОФИ - IT навигатор профессий
+ * Основной файл с данными и логикой отображения IT профессий
+ */
+
+// Данные всех IT направлений и профессий с ссылками на изучение
 const allITFields = {
     qa: {
         title: "🔍 Тестирование и QA",
@@ -456,29 +461,12 @@ const allITFields = {
     }
 };
 
-// Простая функция для прокрутки вверх
-function scrollToTop() {
-    console.log('scrollToTop вызвана - ДОСТУПНА');
-    
-    // Проверяем, что функция доступна
-    if (typeof window.scrollTo !== 'function') {
-        console.error('window.scrollTo не доступен');
-        return;
-    }
-    
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-    
-    console.log('Прокрутка запущена');
-}
-
-// Глобальная функция для прокрутки к направлению
+/**
+ * Плавная прокрутка к конкретному направлению в разделе "Все IT-направления"
+ * @param {string} directionKey - Ключ направления (qa, backend, design и т.д.)
+ */
 function scrollToField(directionKey) {
-    console.log('Функция scrollToField вызвана с ключом:', directionKey);
-    
-    // Закрываем все открытые списки профессий
+    // Закрываем все открытые списки профессий при переходе
     document.querySelectorAll('.direction-professions').forEach(container => {
         container.remove();
     });
@@ -488,23 +476,18 @@ function scrollToField(directionKey) {
     
     // Прокручиваем к разделу "Все IT направления"
     const allDirectionsSection = document.querySelector('.all-directions');
-    console.log('Найден раздел all-directions:', allDirectionsSection);
-    
     if (allDirectionsSection) {
         allDirectionsSection.scrollIntoView({ behavior: 'smooth' });
-        console.log('Прокрутка выполнена');
         
-        // Ждем завершения прокрутки и подсвечиваем нужное поле
+        // Подсвечиваем выбранное направление после прокрутки
         setTimeout(() => {
             const targetField = document.querySelector(`.field-category[data-field="${directionKey}"]`);
-            console.log('Найдено поле:', targetField, 'по селектору:', `.field-category[data-field="${directionKey}"]`);
-            
             if (targetField) {
                 targetField.style.transition = 'all 0.3s ease';
                 targetField.style.boxShadow = '0 0 0 3px var(--primary)';
                 targetField.style.borderRadius = '1rem';
-                console.log('Подсветка применена');
                 
+                // Убираем подсветку через 2 секунды
                 setTimeout(() => {
                     targetField.style.boxShadow = '';
                 }, 2000);
@@ -513,41 +496,79 @@ function scrollToField(directionKey) {
     }
 }
 
-// Управление отображением профессий
+/**
+ * Плавная прокрутка к разделу профессий с главной страницы
+ * @param {Event} event - Событие клика
+ */
+function smoothScrollToProfessions(event) {
+    event.preventDefault();
+    const professionsSection = document.getElementById('professions');
+    if (professionsSection) {
+        professionsSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+/**
+ * Класс для управления отображением профессий и направлений
+ */
 class ProfessionsManager {
     constructor() {
         this.init();
     }
 
+    /**
+     * Инициализация всех функций менеджера
+     */
     init() {
-    this.setupLogoClick();
-    this.renderAllFields();
-    this.setupEventListeners();
-    this.setupDirectionCards();
+        this.setupLogoClick();
+        this.setupSmoothScroll();
+        this.renderAllFields();
+        this.setupEventListeners();
+        this.setupDirectionCards();
     }
 
+    /**
+     * Настройка клика по логотипу для прокрутки вверх
+     */
     setupLogoClick() {
-    const logo = document.querySelector('.logo');
-    if (logo) {
-        logo.style.cursor = 'pointer';
-        logo.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        const logo = document.querySelector('.logo');
+        if (logo) {
+            logo.style.cursor = 'pointer';
+            logo.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Плавная прокрутка к началу страницы
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                
+                // Закрываем все открытые списки профессий
+                document.querySelectorAll('.direction-professions').forEach(container => {
+                    container.remove();
+                });
+                document.querySelectorAll('.show-roles-btn').forEach(btn => {
+                    btn.textContent = 'Показать профессии';
+                });
             });
-            
-            // Закрываем все открытые списки профессий
-            document.querySelectorAll('.direction-professions').forEach(container => {
-                container.remove();
-            });
-            document.querySelectorAll('.show-roles-btn').forEach(btn => {
-                btn.textContent = 'Показать профессии';
-            });
-        });
-    }
+        }
     }
 
+    /**
+     * Настройка плавной прокрутки для кнопки "Смотреть профессии"
+     */
+    setupSmoothScroll() {
+        const professionBtn = document.querySelector('a[href="#professions"]');
+        if (professionBtn) {
+            professionBtn.addEventListener('click', smoothScrollToProfessions);
+        }
+    }
+
+    /**
+     * Настройка обработчиков для карточек основных направлений
+     */
     setupDirectionCards() {
         const directionCards = document.querySelectorAll('.direction-card');
         directionCards.forEach(card => {
@@ -563,6 +584,9 @@ class ProfessionsManager {
         });
     }
 
+    /**
+     * Рендер всех IT направлений в разделе "Все IT-направления"
+     */
     renderAllFields() {
         const grid = document.getElementById('allFieldsGrid');
         if (!grid) return;
@@ -590,8 +614,11 @@ class ProfessionsManager {
         `).join('');
     }
 
+    /**
+     * Настройка глобальных обработчиков событий
+     */
     setupEventListeners() {
-        // Обработчики для кнопок показа профессий
+        // Обработчик для кнопок "Исследовать направление"
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('show-field-details')) {
                 const fieldKey = e.target.dataset.field;
@@ -600,6 +627,11 @@ class ProfessionsManager {
         });
     }
 
+    /**
+     * Показать/скрыть список профессий для конкретного направления
+     * @param {string} directionKey - Ключ направления
+     * @param {HTMLElement} directionCard - DOM-элемент карточки направления
+     */
     showDirectionProfessions(directionKey, directionCard) {
         const field = allITFields[directionKey];
         if (!field) return;
@@ -607,9 +639,11 @@ class ProfessionsManager {
         let professionsContainer = directionCard.querySelector('.direction-professions');
         
         if (professionsContainer) {
+            // Если контейнер уже открыт - закрываем его
             professionsContainer.remove();
             directionCard.querySelector('.show-roles-btn').textContent = 'Показать профессии';
         } else {
+            // Создаем и показываем контейнер с профессиями
             professionsContainer = document.createElement('div');
             professionsContainer.className = 'direction-professions';
             professionsContainer.innerHTML = `
@@ -643,86 +677,95 @@ class ProfessionsManager {
             directionCard.appendChild(professionsContainer);
             showButton.textContent = 'Скрыть профессии';
 
-            // Добавляем обработчики для мини-карточек
+            // Добавляем обработчики для мини-карточек профессий
             professionsContainer.querySelectorAll('.profession-mini-card').forEach(card => {
                 card.style.cursor = 'pointer';
                 card.addEventListener('click', function() {
                     const fieldKey = this.dataset.field;
-                    console.log('Клик по профессии направления:', fieldKey);
                     scrollToField(fieldKey);
                 });
             });
         }
     }
 
+    /**
+     * Показать детальную информацию о направлении со всеми профессиями
+     * @param {string} fieldKey - Ключ направления
+     */
     showFieldDetails(fieldKey) {
-    const field = allITFields[fieldKey];
-    const detailSection = document.getElementById('professionsDetail');
-    
-    if (!field || !detailSection) return;
+        const field = allITFields[fieldKey];
+        const detailSection = document.getElementById('professionsDetail');
+        
+        if (!field || !detailSection) return;
 
-    detailSection.innerHTML = `
-        <div class="field-detail">
-            <div class="detail-header">
-                <div class="detail-icon">${field.icon}</div>
-                <div class="detail-title">
-                    <h3>${field.title}</h3>
-                    <p>${field.description}</p>
+        detailSection.innerHTML = `
+            <div class="field-detail">
+                <div class="detail-header">
+                    <div class="detail-icon">${field.icon}</div>
+                    <div class="detail-title">
+                        <h3>${field.title}</h3>
+                        <p>${field.description}</p>
+                    </div>
+                    <button class="close-detail" onclick="this.closest('.field-detail').remove()">×</button>
                 </div>
-                <button class="close-detail" onclick="this.closest('.field-detail').remove()">×</button>
-            </div>
 
-            <div class="roles-detail">
-                <h4>Профессии в этом направлении</h4>
-                <div class="roles-grid">
-                    ${field.roles.map(role => `
-                        <div class="role-card">
-                            <div class="role-card-header">
-                                <h5>${role.name}</h5>
-                                <div class="role-meta">
-                                    <span class="role-level ${role.level.toLowerCase()}">${role.level}</span>
-                                    <span class="role-salary">${role.salary}</span>
+                <div class="roles-detail">
+                    <h4>Профессии в этом направлении</h4>
+                    <div class="roles-grid">
+                        ${field.roles.map(role => `
+                            <div class="role-card">
+                                <div class="role-card-header">
+                                    <h5>${role.name}</h5>
+                                    <div class="role-meta">
+                                        <span class="role-level ${role.level.toLowerCase()}">${role.level}</span>
+                                        <span class="role-salary">${role.salary}</span>
+                                    </div>
+                                </div>
+                                <p class="role-card-description">${role.description}</p>
+                                
+                                <div class="role-demand">
+                                    <strong>Востребованность:</strong>
+                                    <span class="demand-badge ${role.demand.toLowerCase()}">${role.demand}</span>
+                                </div>
+
+                                <div class="role-skills">
+                                    <strong>Ключевые навыки:</strong>
+                                    <div class="skills-tags">
+                                        ${role.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                                    </div>
+                                </div>
+
+                                <div class="role-roadmap">
+                                    <strong>Путь развития:</strong>
+                                    <div class="roadmap-steps">
+                                        ${role.roadmap.map(step => `
+                                            <div class="roadmap-step">→ ${step}</div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+
+                                <div class="role-actions">
+                                    <button class="btn btn-outline btn-small" onclick="window.open('${role.learnMoreUrl}', '_blank')" ${!role.learnMoreUrl || role.learnMoreUrl === 'ххх' ? 'disabled' : ''}>
+                                        Изучить подробнее
+                                    </button>
+                                    <button class="btn btn-primary btn-small">Начать обучение</button>
                                 </div>
                             </div>
-                            <p class="role-card-description">${role.description}</p>
-                            
-                            <div class="role-demand">
-                                <strong>Востребованность:</strong>
-                                <span class="demand-badge ${role.demand.toLowerCase()}">${role.demand}</span>
-                            </div>
-
-                            <div class="role-skills">
-                                <strong>Ключевые навыки:</strong>
-                                <div class="skills-tags">
-                                    ${role.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
-                                </div>
-                            </div>
-
-                            <div class="role-roadmap">
-                                <strong>Путь развития:</strong>
-                                <div class="roadmap-steps">
-                                    ${role.roadmap.map(step => `
-                                        <div class="roadmap-step">→ ${step}</div>
-                                    `).join('')}
-                                </div>
-                            </div>
-
-                            <div class="role-actions">
-                                <button class="btn btn-outline btn-small" onclick="window.open('${role.learnMoreUrl}', '_blank')" ${!role.learnMoreUrl || role.learnMoreUrl === 'ххх' ? 'disabled' : ''}>
-                                    Изучить подробнее
-                                </button>
-                                <button class="btn btn-primary btn-small">Начать обучение</button>
-                            </div>
-                        </div>
-                    `).join('')}
+                        `).join('')}
+                    </div>
                 </div>
             </div>
-        </div>
-    `;
+        `;
 
-    detailSection.scrollIntoView({ behavior: 'smooth' });
-}
+        // Прокрутка к детальной информации
+        detailSection.scrollIntoView({ behavior: 'smooth' });
+    }
 
+    /**
+     * Получить рекомендуемую длительность обучения для уровня
+     * @param {string} level - Уровень профессии (Начальный, Средний, Старший)
+     * @returns {string} Рекомендуемая длительность обучения
+     */
     getLearningDuration(level) {
         const durations = {
             'Начальный': '3-6 месяцев',
@@ -734,49 +777,17 @@ class ProfessionsManager {
     }
 }
 
-// Инициализация для главной страницы
+/**
+ * Инициализация главной страницы с профессиями
+ */
 function initializeHomePage() {
-    const manager = new ProfessionsManager();
+    new ProfessionsManager();
 }
 
-// Инициализация при загрузке страницы
+// Инициализация при полной загрузке DOM
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM загружен, инициализация...');
-    
-    // Инициализация главной страницы
+    // Инициализируем только на главной странице (где есть контейнер направлений)
     if (document.getElementById('allFieldsGrid')) {
-        console.log('Главная страница обнаружена, инициализация...');
         initializeHomePage();
     }
 });
-
-// Делаем функцию глобально доступной
-window.scrollToTop = function() {
-    console.log('scrollToTop вызвана!');
-    
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-    
-    // Закрываем все открытые списки профессий
-    document.querySelectorAll('.direction-professions').forEach(container => {
-        container.remove();
-    });
-    document.querySelectorAll('.show-roles-btn').forEach(btn => {
-        btn.textContent = 'Показать профессии';
-    });
-};
-
-// Плавная прокрутка к разделу профессий
-function smoothScrollToProfessions(event) {
-    event.preventDefault();
-    
-    const professionsSection = document.getElementById('professions');
-    if (professionsSection) {
-        professionsSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
-}

@@ -8,14 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Шапка сайта с навигацией -->
     <header class="header">
         <div class="container">
             <div class="nav">
-                <div class="logo" onclick="console.log('Клик!'); scrollToTop();" style="cursor: pointer;">
+                <!-- Логотип с функцией скролла наверх -->
+                <div class="logo" onclick="scrollToTop()" style="cursor: pointer;">
                     <span>🚀</span>
                     <span>Контур.Профи</span>
                 </div>
+                <!-- Основная навигация -->
                 <nav class="nav-links">
                     <a href="index.html" class="nav-link active">Профессии</a>
                     <a href="test.html" class="nav-link">Тест</a>
@@ -24,9 +26,10 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Главный баннер с призывом к действию -->
     <section class="hero">
         <div class="hero-background">
+            <!-- Фоновые изображения для визуального эффекта -->
             <div class="background-image bg-image-1"></div>
             <div class="background-image bg-image-2"></div>
             <div class="gradient-overlay"></div>
@@ -35,6 +38,7 @@
             <div class="hero-content">
                 <h1>Найди свою IT-профессию</h1>
                 <p>Исследуй мир технологий, открой для себя перспективные направления и построй успешную карьеру в IT</p>
+                <!-- Кнопки основных действий -->
                 <div class="hero-actions">
                     <a href="#professions" class="btn btn-primary" onclick="smoothScrollToProfessions(event)">
                         <span class="btn-icon">💼</span>
@@ -45,6 +49,7 @@
                         Пройти тест
                     </a>
                 </div>
+                <!-- Статистика для социального доказательства -->
                 <div class="hero-stats">
                     <div class="stat">
                         <span class="stat-number">50+</span>
@@ -63,7 +68,7 @@
         </div>
     </section>
 
-    <!-- Professions Section -->
+    <!-- Основной раздел с профессиями -->
     <section id="professions" class="professions">
         <div class="container">
             <div class="section-header">
@@ -71,10 +76,11 @@
                 <p>Исследуйте разнообразие карьерных путей в технологической индустрии</p>
             </div>
 
-            <!-- Основные направления из теста -->
+            <!-- Блок основных направлений из теста -->
             <div class="main-directions">
                 <h3>🎯 Основные направления</h3>
                 <div class="directions-grid">
+                    <!-- Карточка направления: Тестирование и QA -->
                     <div class="direction-card" data-direction="qa">
                         <div class="direction-icon">🔍</div>
                         <h4>Тестирование и QA</h4>
@@ -89,6 +95,7 @@
                         </button>
                     </div>
 
+                    <!-- Карточка направления: Backend разработка -->
                     <div class="direction-card" data-direction="backend">
                         <div class="direction-icon">⚙️</div>
                         <h4>Backend разработка</h4>
@@ -103,6 +110,7 @@
                         </button>
                     </div>
 
+                    <!-- Карточка направления: UI/UX Дизайн -->
                     <div class="direction-card" data-direction="design">
                         <div class="direction-icon">🎨</div>
                         <h4>UI/UX Дизайн</h4>
@@ -117,6 +125,7 @@
                         </button>
                     </div>
 
+                    <!-- Карточка направления: Управление проектами -->
                     <div class="direction-card" data-direction="management">
                         <div class="direction-icon">👥</div>
                         <h4>Управление проектами</h4>
@@ -131,6 +140,7 @@
                         </button>
                     </div>
 
+                    <!-- Карточка направления: DevOps и инфраструктура -->
                     <div class="direction-card" data-direction="devops">
                         <div class="direction-icon">🔧</div>
                         <h4>DevOps и инфраструктура</h4>
@@ -147,22 +157,22 @@
                 </div>
             </div>
 
-            <!-- Все IT направления -->
+            <!-- Блок всех IT направлений (загружается через JS) -->
             <div class="all-directions">
                 <h3>🌐 Все IT-направления</h3>
                 <div class="fields-grid" id="allFieldsGrid">
-                    <!-- Направления будут загружены через JavaScript -->
+                    <!-- Динамический контент будет загружен через JavaScript -->
                 </div>
             </div>
 
-            <!-- Детальная информация о профессиях -->
+            <!-- Детальная информация о профессиях (динамический контент) -->
             <div class="professions-detail" id="professionsDetail">
-                <!-- Контент будет загружен динамически -->
+                <!-- Контент будет загружен динамически при взаимодействии пользователя -->
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Блок призыва к действию (пройти тест) -->
     <section class="cta">
         <div class="container">
             <div class="cta-content">
@@ -176,10 +186,11 @@
         </div>
     </section>
 
-     <!-- Footer -->
+    <!-- Подвал сайта -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
+                <!-- Информация о компании -->
                 <div class="footer-section">
                     <div class="footer-logo">
                         <span>🚀</span>
@@ -187,6 +198,7 @@
                     </div>
                     <p>Помогаем найти свой путь в IT с 2024 года</p>
                 </div>
+                <!-- Контакты поддержки -->
                 <div class="footer-section">
                     <h3>Поддержка</h3>
                     <ul>
@@ -194,6 +206,7 @@
                         <li><a href="tel:+78003333636">8 (800) 333-36-36</a></li>
                     </ul>
                 </div>
+                <!-- Информация о партнере -->
                 <div class="footer-section">
                     <h3>Партнер</h3>
                     <div class="partner-info">
@@ -209,6 +222,7 @@
         </div>
     </footer>
 
+    <!-- Подключение JavaScript для функциональности профессий -->
     <script src="js/professions.js"></script>
 </body>
 </html>

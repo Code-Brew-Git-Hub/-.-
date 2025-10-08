@@ -8,14 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Шапка сайта с основной навигацией -->
     <header class="header">
         <div class="container">
             <div class="nav">
-                <div class="logo" onclick="goToHome()" style="cursor: pointer;">
+                <!-- Логотип с функцией перехода на главную страницу -->
+                <div class="logo" onclick="goToHome()">
                     <span>🚀</span>
                     <span>Контур.Профи</span>
                 </div>
+                <!-- Навигационное меню -->
                 <nav class="nav-links">
                     <a href="index.html" class="nav-link">Профессии</a>
                     <a href="test.html" class="nav-link active">Тест</a>
@@ -24,9 +26,10 @@
         </div>
     </header>
 
-    <!-- Test Hero -->
+    <!-- Баннер теста с описанием и призывом к действию -->
     <section class="test-hero">
         <div class="test-hero-background">
+            <!-- Декоративные элементы фона -->
             <div class="background-shapes">
                 <div class="shape shape-1"></div>
                 <div class="shape shape-2"></div>
@@ -35,12 +38,14 @@
         </div>
         <div class="container">
             <div class="test-hero-content">
+                <!-- Бейдж с указанием типа теста -->
                 <div class="test-badge">
                     <span>🧩</span>
                     Профориентационный тест
                 </div>
                 <h1>Найди профессию, которая подходит именно тебе</h1>
                 <p>Ответьте на 25 вопросов и получите детальную траекторию развития в IT</p>
+                <!-- Статистика теста для информирования пользователя -->
                 <div class="test-stats">
                     <div class="stat">
                         <span class="stat-number">25</span>
@@ -55,6 +60,7 @@
                         <span class="stat-label">минут</span>
                     </div>
                 </div>
+                <!-- Основная кнопка запуска теста -->
                 <button onclick="testManager.startTest()" class="btn btn-primary btn-hero">
                     <span class="btn-icon">🧩</span>
                     Начать тест
@@ -63,29 +69,33 @@
         </div>
     </section>
 
-    <!-- Test Content -->
+    <!-- Основной контент теста -->
     <main class="test-main">
         <div class="container">
+            <!-- Панель прогресса прохождения теста -->
             <div class="test-progress-container">
                 <div class="progress-info">
                     <span class="progress-text">Вопрос <span id="currentQuestion">1</span> из <span id="totalQuestions">25</span></span>
                     <span class="block-text">Блок: <span id="currentBlock">1</span> из 5</span>
                 </div>
+                <!-- Визуальная полоса прогресса -->
                 <div class="progress-bar">
                     <div class="progress-fill" id="testProgress"></div>
                 </div>
             </div>
 
+            <!-- Контейнер для динамического контента теста -->
             <div id="testContent">
-                <!-- Тест будет загружен динамически -->
+                <!-- Содержимое загружается через JavaScript: вопросы, варианты ответов, результаты -->
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Подвал сайта с контактной информацией -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
+                <!-- Информация о компании -->
                 <div class="footer-section">
                     <div class="footer-logo">
                         <span>🚀</span>
@@ -93,6 +103,7 @@
                     </div>
                     <p>Помогаем найти свой путь в IT с 2024 года</p>
                 </div>
+                <!-- Контакты технической поддержки -->
                 <div class="footer-section">
                     <h3>Поддержка</h3>
                     <ul>
@@ -100,6 +111,7 @@
                         <li><a href="tel:+78003333636">8 (800) 333-36-36</a></li>
                     </ul>
                 </div>
+                <!-- Информация о партнере -->
                 <div class="footer-section">
                     <h3>Партнер</h3>
                     <div class="partner-info">
@@ -115,8 +127,15 @@
         </div>
     </footer>
 
+    <!-- Основной скрипт управления тестом -->
     <script src="js/test.js"></script>
+    
+    <!-- Встроенные скрипты для навигации -->
     <script>
+        /**
+         * Переход на главную страницу
+         * Используется при клике на логотип
+         */
         function goToHome() {
             window.location.href = 'index.html';
         }

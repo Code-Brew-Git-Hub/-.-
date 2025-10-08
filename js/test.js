@@ -1,4 +1,11 @@
-// New test questions system
+/**
+ * КОНТУР.ПРОФИ - Модуль профориентационного тестирования
+ * Система тестирования для определения подходящих IT-профессий
+ */
+
+/**
+ * Вопросы теста сгруппированные по блокам
+ */
 const testQuestions = [
     // Блок 1: Рабочий стиль и мотивация
     {
@@ -9,7 +16,7 @@ const testQuestions = [
     },
     {
         block: 1,
-        blockName: "Рабочий стиль и мотивация",
+        blockName: "Рабочий стиль и мотивация", 
         text: "Я получаю больше удовольствия от работы, когда могу глубоко сконцентрироваться на одной задаче в одиночестве.",
         number: 2
     },
@@ -157,7 +164,9 @@ const testQuestions = [
     }
 ];
 
-// Career profiles mapping - РАСШИРЕННАЯ ВЕРСИЯ
+/**
+ * Профили карьерных направлений
+ */
 const careerProfiles = {
     1: {
         title: "ВНИМАТЕЛЬНЫЙ ИСПОЛНИТЕЛЬ",
@@ -375,7 +384,9 @@ const careerProfiles = {
     }
 };
 
-// Дополнительные IT направления и профессии
+/**
+ * Дополнительные IT направления
+ */
 const additionalITFields = {
     dataScience: {
         title: "DATA SCIENCE & AI",
@@ -385,162 +396,14 @@ const additionalITFields = {
                 description: "Строит модели машинного обучения для прогнозирования и анализа данных",
                 skills: ["Python", "ML", "Статистика", "Pandas", "SQL"],
                 level: "Средний/Старший"
-            },
-            {
-                name: "Data Analyst", 
-                description: "Анализирует данные и создает отчеты для бизнес-решений",
-                skills: ["SQL", "Excel", "Tableau", "Статистика", "Визуализация"],
-                level: "Начальный/Средний"
-            },
-            {
-                name: "ML Engineer",
-                description: "Разрабатывает и внедряет модели машинного обучения в production",
-                skills: ["Python", "TensorFlow", "MLOps", "Docker", "AWS"],
-                level: "Средний/Старший"
-            },
-            {
-                name: "AI Researcher",
-                description: "Исследует и разрабатывает новые алгоритмы искусственного интеллекта",
-                skills: ["Python", "Математика", "Research", "PyTorch", "Алгоритмы"],
-                level: "Старший/Эксперт"
-            }
-        ]
-    },
-    cybersecurity: {
-        title: "КИБЕРБЕЗОПАСНОСТЬ",
-        roles: [
-            {
-                name: "Security Analyst",
-                description: "Мониторит и анализирует угрозы безопасности",
-                skills: ["SIEM", "Сети", "Аналитика", "Incident Response", "Linux"],
-                level: "Начальный/Средний"
-            },
-            {
-                name: "Penetration Tester",
-                description: "Тестирует системы на уязвимости методом этичного взлома",
-                skills: ["Kali Linux", "Metasploit", "Сети", "Web Security", "Reporting"],
-                level: "Средний/Старший"
-            },
-            {
-                name: "Security Engineer",
-                description: "Разрабатывает и внедряет системы безопасности",
-                skills: ["Python", "Firewalls", "Cryptography", "AWS Security", "DevSecOps"],
-                level: "Средний/Старший"
-            }
-        ]
-    },
-    mobile: {
-        title: "МОБИЛЬНАЯ РАЗРАБОТКА",
-        roles: [
-            {
-                name: "iOS Developer",
-                description: "Разрабатывает приложения для iPhone и iPad",
-                skills: ["Swift", "UIKit", "Xcode", "Core Data", "App Store"],
-                level: "Начальный/Средний"
-            },
-            {
-                name: "Android Developer",
-                description: "Создает приложения для устройств на Android",
-                skills: ["Kotlin", "Android SDK", "Java", "Material Design", "Google Play"],
-                level: "Начальный/Средний"
-            },
-            {
-                name: "React Native Developer",
-                description: "Разрабатывает кроссплатформенные мобильные приложения",
-                skills: ["JavaScript", "React", "Native Modules", "Redux", "TypeScript"],
-                level: "Средний"
-            },
-            {
-                name: "Flutter Developer",
-                description: "Создает приложения для iOS и Android на одном коде",
-                skills: ["Dart", "Flutter SDK", "Widgets", "Bloc", "Firebase"],
-                level: "Начальный/Средний"
-            }
-        ]
-    },
-    frontend: {
-        title: "FRONTEND РАЗРАБОТКА",
-        roles: [
-            {
-                name: "Frontend Developer",
-                description: "Создает пользовательские интерфейсы для веб-приложений",
-                skills: ["JavaScript", "React", "HTML/CSS", "TypeScript", "Webpack"],
-                level: "Начальный/Средний"
-            },
-            {
-                name: "Frontend Architect",
-                description: "Проектирует архитектуру сложных frontend-приложений",
-                skills: ["Architecture", "Performance", "Micro-frontends", "SSR", "Testing"],
-                level: "Старший/Эксперт"
-            },
-            {
-                name: "Fullstack Developer",
-                description: "Работает и с frontend, и с backend частями приложения",
-                skills: ["JavaScript", "Node.js", "React", "Databases", "DevOps"],
-                level: "Средний/Старший"
-            }
-        ]
-    },
-    gameDev: {
-        title: "GAME DEVELOPMENT",
-        roles: [
-            {
-                name: "Game Developer",
-                description: "Разрабатывает игровую логику и механику",
-                skills: ["C++", "Unity", "Unreal Engine", "Game Physics", "AI"],
-                level: "Средний/Старший"
-            },
-            {
-                name: "Game Designer",
-                description: "Проектирует геймплей, уровни и игровые механики",
-                skills: ["Design", "Balance", "Prototyping", "Narrative", "UX"],
-                level: "Начальный/Средний"
-            },
-            {
-                name: "VR/AR Developer",
-                description: "Создает приложения виртуальной и дополненной реальности",
-                skills: ["Unity", "3D Math", "VR SDK", "Optimization", "3D Modeling"],
-                level: "Средний/Старший"
-            }
-        ]
-    },
-    blockchain: {
-        title: "BLOCKCHAIN & WEB3",
-        roles: [
-            {
-                name: "Blockchain Developer",
-                description: "Разрабатывает смарт-контракты и децентрализованные приложения",
-                skills: ["Solidity", "Web3.js", "Ethereum", "Smart Contracts", "Cryptography"],
-                level: "Средний/Старший"
-            },
-            {
-                name: "Smart Contract Auditor",
-                description: "Проверяет безопасность смарт-контрактов",
-                skills: ["Solidity", "Security", "Testing", "DeFi", "Audit Tools"],
-                level: "Старший/Эксперт"
-            }
-        ]
-    },
-    embedded: {
-        title: "EMBEDDED & IOT",
-        roles: [
-            {
-                name: "Embedded Developer",
-                description: "Программирует встроенные системы и микроконтроллеры",
-                skills: ["C/C++", "RTOS", "Electronics", "Debugging", "Hardware"],
-                level: "Средний/Старший"
-            },
-            {
-                name: "IoT Engineer",
-                description: "Разрабатывает решения для интернета вещей",
-                skills: ["Python", "MQTT", "Sensors", "Cloud IoT", "Networking"],
-                level: "Средний"
             }
         ]
     }
 };
 
-// Test Management
+/**
+ * Менеджер управления тестированием
+ */
 class TestManager {
     constructor() {
         this.currentQuestionIndex = 0;
@@ -550,44 +413,42 @@ class TestManager {
         this.blockCounts = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0};
     }
 
+    /**
+     * Инициализация теста - показывает стартовый экран
+     */
     initializeTest() {
         this.showWelcomeScreen();
     }
 
+    /**
+     * Показ экрана приветствия с инструкциями
+     */
     showWelcomeScreen() {
         const testContent = document.getElementById('testContent');
+        if (!testContent) {
+            console.error('Элемент testContent не найден');
+            return;
+        }
+
         testContent.innerHTML = `
             <div class="welcome-card">
                 <div class="welcome-icon">🧩</div>
                 <h2>Инструкция к тесту</h2>
                 <div class="instruction">
-                    <p><strong>Оцените, насколько каждое из следующих утверждений похоже на вас, по шкале от 1 до 5:</strong></p>
+                    <p><strong>Оцените утверждения по шкале от 1 до 5:</strong></p>
                     <div class="scale-info">
                         <div class="scale-item">
                             <span class="scale-number">1</span>
                             <span class="scale-label">Совсем не про меня</span>
                         </div>
                         <div class="scale-item">
-                            <span class="scale-number">2</span>
-                            <span class="scale-label">Скорее не про меня</span>
-                        </div>
-                        <div class="scale-item">
-                            <span class="scale-number">3</span>
-                            <span class="scale-label">Отчасти похоже, отчасти нет</span>
-                        </div>
-                        <div class="scale-item">
-                            <span class="scale-number">4</span>
-                            <span class="scale-label">Скорее про меня</span>
-                        </div>
-                        <div class="scale-item">
                             <span class="scale-number">5</span>
                             <span class="scale-label">Очень точно про меня</span>
                         </div>
                     </div>
-                    <p class="instruction-note">Тест состоит из 25 вопросов, разделенных на 5 блоков. Отвечайте честно - это поможет получить наиболее точный результат!</p>
+                    <p class="instruction-note">Тест состоит из 25 вопросов. Отвечайте честно для точного результата!</p>
                 </div>
                 <button onclick="testManager.startTest()" class="btn btn-primary btn-hero">
-                    <span class="btn-icon">🧩</span>
                     Начать тест
                 </button>
             </div>
@@ -595,6 +456,9 @@ class TestManager {
         this.updateProgress(0, 1);
     }
 
+    /**
+     * Запуск теста - сброс состояния и показ первого вопроса
+     */
     startTest() {
         this.currentQuestionIndex = 0;
         this.answers = [];
@@ -603,9 +467,17 @@ class TestManager {
         this.showQuestion();
     }
 
+    /**
+     * Отображение текущего вопроса
+     */
     showQuestion() {
         const question = testQuestions[this.currentQuestionIndex];
         const testContent = document.getElementById('testContent');
+
+        if (!testContent || !question) {
+            console.error('Ошибка при отображении вопроса');
+            return;
+        }
 
         testContent.innerHTML = `
             <div class="question-card">
@@ -642,29 +514,38 @@ class TestManager {
         this.updateProgress(this.currentQuestionIndex + 1, question.block);
     }
 
+    /**
+     * Обработка выбора ответа
+     */
     selectAnswer(rating) {
         const nextButton = document.getElementById('nextButton');
-        nextButton.disabled = false;
+        if (nextButton) {
+            nextButton.disabled = false;
+        }
         
-        // Add visual feedback
+        // Визуальное выделение выбранного ответа
         const options = document.querySelectorAll('.rating-option');
         options.forEach(option => {
             const input = option.querySelector('input');
-            if (input.value == rating) {
-                option.classList.add('selected');
-            } else {
-                option.classList.remove('selected');
+            if (input) {
+                option.classList.toggle('selected', input.value == rating);
             }
         });
     }
 
+    /**
+     * Переход к следующему вопросу
+     */
     nextQuestion() {
         const selectedRating = document.querySelector('input[name="answer"]:checked');
+        
+        // Проверка выбора ответа (кроме последнего вопроса)
         if (!selectedRating && this.currentQuestionIndex < testQuestions.length - 1) {
-            alert('Пожалуйста, выберите оценку перед переходом к следующему вопросу');
+            alert('Пожалуйста, выберите оценку');
             return;
         }
 
+        // Сохранение ответа
         if (selectedRating) {
             const question = testQuestions[this.currentQuestionIndex];
             const rating = parseInt(selectedRating.value);
@@ -675,13 +556,14 @@ class TestManager {
                 rating: rating
             });
 
-            // Update block scores
+            // Обновление счетчиков блока
             this.blockScores[question.block] += rating;
             this.blockCounts[question.block]++;
         }
 
         this.currentQuestionIndex++;
         
+        // Показ следующего вопроса или результатов
         if (this.currentQuestionIndex < testQuestions.length) {
             this.showQuestion();
         } else {
@@ -689,9 +571,12 @@ class TestManager {
         }
     }
 
+    /**
+     * Возврат к предыдущему вопросу
+     */
     previousQuestion() {
         if (this.currentQuestionIndex > 0) {
-            // Remove the last answer if exists
+            // Удаление последнего ответа
             if (this.answers.length > this.currentQuestionIndex - 1) {
                 const lastAnswer = this.answers[this.currentQuestionIndex - 1];
                 this.blockScores[lastAnswer.block] -= lastAnswer.rating;
@@ -704,25 +589,32 @@ class TestManager {
         }
     }
 
+    /**
+     * Обновление индикатора прогресса
+     */
     updateProgress(current, block) {
         const progress = (current / testQuestions.length) * 100;
-        document.getElementById('testProgress').style.width = `${progress}%`;
-        document.getElementById('currentQuestion').textContent = current;
-        document.getElementById('currentBlock').textContent = block;
+        const progressBar = document.getElementById('testProgress');
+        const currentQuestionElem = document.getElementById('currentQuestion');
+        const currentBlockElem = document.getElementById('currentBlock');
+        
+        if (progressBar) progressBar.style.width = `${progress}%`;
+        if (currentQuestionElem) currentQuestionElem.textContent = current;
+        if (currentBlockElem) currentBlockElem.textContent = block;
     }
 
+    /**
+     * Расчет результатов теста
+     */
     calculateResults() {
-        // Calculate average scores for each block
+        // Вычисление средних баллов по блокам
         const blockAverages = {};
         for (let block = 1; block <= 5; block++) {
-            if (this.blockCounts[block] > 0) {
-                blockAverages[block] = this.blockScores[block] / this.blockCounts[block];
-            } else {
-                blockAverages[block] = 0;
-            }
+            blockAverages[block] = this.blockCounts[block] > 0 ? 
+                this.blockScores[block] / this.blockCounts[block] : 0;
         }
 
-        // Find the block with highest average
+        // Поиск блока с максимальным средним баллом
         let maxBlock = 1;
         let maxScore = blockAverages[1];
         
@@ -742,20 +634,27 @@ class TestManager {
         this.showResults();
     }
 
+    /**
+     * Отображение результатов теста
+     */
     showResults() {
         const testContent = document.getElementById('testContent');
+        if (!testContent || !this.results) {
+            console.error('Ошибка при отображении результатов');
+            return;
+        }
+
         const profile = this.results.profile;
         
-        // Сортируем блоки по убыванию среднего балла
-        const sortedBlocks = Object.entries(this.results.blockScores)
+        // Топ-3 блока по убыванию баллов
+        const topProfiles = Object.entries(this.results.blockScores)
             .sort(([,a], [,b]) => b - a)
-            .slice(0, 3);
-
-        const topProfiles = sortedBlocks.map(([blockNumber]) => ({
-            block: parseInt(blockNumber),
-            profile: careerProfiles[blockNumber],
-            score: this.results.blockScores[blockNumber]
-        }));
+            .slice(0, 3)
+            .map(([blockNumber]) => ({
+                block: parseInt(blockNumber),
+                profile: careerProfiles[blockNumber],
+                score: this.results.blockScores[blockNumber]
+            }));
 
         testContent.innerHTML = `
             <div class="results-container">
@@ -784,9 +683,9 @@ class TestManager {
                         </div>
                     </div>
 
-                    <!-- Альтернативные роли в основном направлении -->
+                    <!-- Альтернативные роли -->
                     <div class="alternative-roles">
-                        <h4>🎯 Смежные роли в этом направлении:</h4>
+                        <h4>🎯 Смежные роли:</h4>
                         <div class="roles-tags">
                             ${profile.alternativeRoles.map(role => `
                                 <span class="role-tag">${role}</span>
@@ -794,6 +693,7 @@ class TestManager {
                         </div>
                     </div>
 
+                    <!-- План развития -->
                     <div class="roadmap-section">
                         <h3>🚀 Ваша траектория развития</h3>
                         ${profile.roadmap.map(step => `
@@ -804,10 +704,7 @@ class TestManager {
                                 </div>
                                 <div class="step-courses">
                                     ${step.courses.map(course => `
-                                        <div class="course-item">
-                                            <span class="course-icon">📚</span>
-                                            <span>${course}</span>
-                                        </div>
+                                        <div class="course-item">📚 ${course}</div>
                                     `).join('')}
                                 </div>
                             </div>
@@ -815,71 +712,34 @@ class TestManager {
                     </div>
                 </div>
 
-                <!-- Альтернативные варианты -->
+                <!-- Альтернативные профили -->
                 ${topProfiles.length > 1 ? `
                     <div class="alternative-profiles">
                         <h3>💡 Другие подходящие варианты</h3>
                         <div class="alternative-cards">
-                            ${topProfiles.slice(1).map(altProfile => `
+                            ${topProfiles.slice(1).map((altProfile, index) => `
                                 <div class="alternative-card">
                                     <div class="alt-profile-header">
-                                        <div class="alt-badge">#${topProfiles.indexOf(altProfile) + 1}</div>
+                                        <div class="alt-badge">#${index + 2}</div>
                                         <h4>${altProfile.profile.title}</h4>
                                         <h5>${altProfile.profile.role}</h5>
                                         <div class="alt-score">
                                             Совпадение: ${(altProfile.score * 20).toFixed(0)}%
                                         </div>
                                     </div>
-                                    <div class="alt-description">
-                                        <p>${altProfile.profile.description}</p>
-                                    </div>
-                                    <div class="alt-roadmap">
-                                        <strong>Быстрый старт:</strong>
-                                        <div class="alt-courses">
-                                            ${altProfile.profile.roadmap[0].courses.map(course => `
-                                                <div class="alt-course">📚 ${course}</div>
-                                            `).join('')}
-                                        </div>
-                                    </div>
-                                    <div class="alt-skills">
-                                        <strong>Смежные роли:</strong>
-                                        <div class="alt-skill-tags">
-                                            ${altProfile.profile.alternativeRoles.slice(0, 3).map(role => `
-                                                <span class="alt-skill-tag">${role}</span>
-                                            `).join('')}
-                                        </div>
-                                    </div>
+                                    <p>${altProfile.profile.description}</p>
                                 </div>
                             `).join('')}
                         </div>
                     </div>
                 ` : ''}
 
-                <!-- Статистика по блокам -->
-                <div class="blocks-stats">
-                    <h3>📊 Результаты по блокам</h3>
-                    <div class="stats-grid">
-                        ${Object.entries(this.results.blockScores).map(([block, score]) => `
-                            <div class="stat-block ${block == this.results.dominantBlock ? 'dominant' : ''}">
-                                <div class="stat-block-header">
-                                    <span class="block-name">Блок ${block}</span>
-                                    <span class="block-score">${(score * 20).toFixed(0)}%</span>
-                                </div>
-                                <div class="stat-progress">
-                                    <div class="stat-progress-bar" style="width: ${score * 20}%"></div>
-                                </div>
-                                <div class="block-profile">${careerProfiles[block].role}</div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-
-                <!-- Дополнительные IT направления -->
+                <!-- Дополнительные направления -->
                 <div class="additional-fields">
-                    <h3>🌐 Другие перспективные IT-направления</h3>
+                    <h3>🌐 Другие IT-направления</h3>
                     <div class="fields-grid">
                         ${Object.entries(additionalITFields).map(([key, field]) => `
-                            <div class="field-category" data-field="${key}">
+                            <div class="field-category">
                                 <h4>${field.title}</h4>
                                 <div class="field-roles">
                                     ${field.roles.map(role => `
@@ -888,10 +748,7 @@ class TestManager {
                                                 <strong>${role.name}</strong>
                                                 <span class="role-level">${role.level}</span>
                                             </div>
-                                            <p class="role-description">${role.description}</p>
-                                            <div class="role-skills">
-                                                ${role.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
-                                            </div>
+                                            <p>${role.description}</p>
                                         </div>
                                     `).join('')}
                                 </div>
@@ -900,6 +757,7 @@ class TestManager {
                     </div>
                 </div>
 
+                <!-- Кнопки действий -->
                 <div class="results-actions">
                     <button onclick="testManager.restartTest()" class="btn btn-secondary">
                         Пройти тест снова
@@ -914,6 +772,9 @@ class TestManager {
         this.updateProgress(100, 5);
     }
 
+    /**
+     * Перезапуск теста
+     */
     restartTest() {
         this.currentQuestionIndex = 0;
         this.answers = [];
@@ -924,12 +785,17 @@ class TestManager {
     }
 }
 
-// Initialize test manager
-const testManager = new TestManager();
+// Создаем глобальный экземпляр менеджера тестов
+window.testManager = new TestManager();
 
-// Initialize test when page loads
+/**
+ * Запуск теста при загрузке страницы
+ */
 document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('testContent')) {
-        testManager.initializeTest();
+        console.log('Инициализация теста...');
+        window.testManager.initializeTest();
+    } else {
+        console.log('Страница теста не найдена');
     }
 });
